@@ -62,6 +62,7 @@ source $HOME/.zsh/windowtitle.zsh
 ## alias section
 alias d="screen -d main; screen -x main"
 alias jump='ssh -t launchpad002 ssh'
+alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <esorenson@apple.com> X\""
 
 ## function section, for things longer than aliases
 function rmssh () {
@@ -94,6 +95,63 @@ function ss() {
     source ~/ssh.sh
 }
 
+function ncdig () {
+    host=$1
+    ip=$(dig +short a ${host}.me.com @17.230.9.29)
+    [ -z "$ip" ] && echo "Unknown IP for [$host]" 1>&2 && return
+    echo $ip
+}
+
+function ncssh () {
+    host=$1
+    ip=$( ncdig $host )
+    [ ! -z "$ip" ] && ssh $ip
+}
+
+
+function sq()
+{
+        ssh     -oLogLevel=ERROR \
+                -oConnectTimeout=8 \
+                -oPasswordAuthentication=no \
+                -oNumberOfPasswordPrompts=0 \
+                -oServerAliveInterval=1 \
+                -oServerAliveCountMax=8 \
+                -oBatchMode=yes \
+                -oUserKnownHostsFile=/dev/null \
+                -oGlobalKnownHostsFile=/dev/null \
+                -oCheckHostIP=no \
+                -oStrictHostKeyChecking=no \
+                "$@"
+}
+    
+
+function pbget () {
+        sq $1 cat /tmp/screen-exchange-eric | pbcopy
+}
+
+function pbput () {
+        sq $1 pbpaste | ssh $1 cat > /tmp/screen-exchange-eric
+}
+
+alias pprod='cd "/Users/eric/Sandbox/mmesa/puppet/branches/prod/${$(pwd)##/Users/eric/Sandbox/mmesa/puppet/branches/test/}"'
+alias ptest='cd "/Users/eric/Sandbox/mmesa/puppet/branches/test/${$(pwd)##/Users/eric/Sandbox/mmesa/puppet/branches/prod/}"'
+alias ipsort='sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
+
+function pmdiff () {
+    (
+        cd ~/Sandbox/mmesa/puppet/branches
+        diff -b -r -u --exclude=.svn prod/modules/$1 test/modules/$1
+    )
+}
+
+function pmmerge () {
+    (
+        cd ~/Sandbox/dotmac/puppet/branches/prod
+        svn merge -c $* https://is-svn.apple.com/svn/mmesa/puppet/branches/test
+    )
+}
+
 # from RH /etc/profile
 function pathmunge () {
 	if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
@@ -112,12 +170,12 @@ function pathmunge () {
 
 pathmunge /sbin
 pathmunge /usr/sbin
-pathmunge /opt/local/bin
-pathmunge /opt/local/sbin
 pathmunge /usr/local/sbin after
 pathmunge /usr/local/bin after
 pathmunge /dmadmin/scripts
 pathmunge /root/tools/bin
+pathmunge /opt/local/bin
+pathmunge /opt/local/sbin
 
 unset pathmunge
 
@@ -125,6 +183,8 @@ unset pathmunge
 TZ="America/Los_Angeles"
 PS1="[%n@%3m %40<...<%~]%# " 
 
+# This loads RVM into a shell session if it's available
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 if [[ `uname` == "Darwin" ]]; then
 	# for osx desktops only
@@ -144,4 +204,6 @@ else
         SVN_EDITOR=$VISUAL
 fi
 
-export TZ PS1 PATH VISUAL SVN_EDITOR
+SVN_SSH='ssh -q -l eric'
+
+export TZ PS1 PATH VISUAL SVN_EDITOR SVN_SSH

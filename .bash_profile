@@ -36,7 +36,6 @@ function ss() {
 }
 
 
-
 function pathmunge () {
         if ! echo $PATH | egrep "(^|:)$1($|:)" >/dev/null ; then
 	   if [ "$2" = "after" ] ; then
@@ -61,14 +60,14 @@ pathmunge /usr/local/bin after
 pathmunge /dmadmin/scripts
 pathmunge ~root/tools/bin
 
-
+alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <esorenson@apple.com> X\""
+ 
 # No core files by default
 ulimit -S -c 0 > /dev/null 2>&1
 
 CLICOLOR=1
 HOSTNAME=`/bin/hostname`
 HISTSIZE=10000
-TMOUT=0
 
 if [ -z "$INPUTRC" -a ! -f "$HOME/.inputrc" ]; then
     INPUTRC=/etc/inputrc
@@ -85,9 +84,12 @@ else
         SVN_EDITOR=$VISUAL
 fi
 
+SVN_SSH='ssh -q -l eric'
 
-
-export PATH USER HOSTNAME HISTSIZE INPUTRC PS1 TMOUT CLICOLOR VISUAL SVN_EDITOR
+export PATH USER HOSTNAME HISTSIZE INPUTRC PS1 CLICOLOR VISUAL SVN_EDITOR SVN_SSH
 
 unset i
 unset pathmunge
+
+TMOUT=0
+export TMOUT
