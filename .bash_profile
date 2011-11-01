@@ -33,6 +33,7 @@ function fss() {
 
 function ss() {
         source ~/ssh.sh
+        ssh-add -l
 }
 
 
