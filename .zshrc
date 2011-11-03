@@ -63,6 +63,7 @@ source $HOME/.zsh/windowtitle.zsh
 alias d="screen -d main; screen -x main"
 alias jump='ssh -t launchpad002 ssh'
 alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <esorenson@apple.com> X\""
+alias rsyncmp3="rsync -avW  -k --files-from=files.txt -e 'ssh -p 2222' sublimit.explosive.net:. ."
 
 ## function section, for things longer than aliases
 function rmssh () {
