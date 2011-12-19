@@ -129,11 +129,11 @@ function sq()
     
 
 function pbget () {
-        sq $1 cat /tmp/screen-exchange-eric | pbcopy
+        sq $1 cat /tmp/tmux-exchange-eric | pbcopy
 }
 
 function pbput () {
-        sq $1 pbpaste | ssh $1 cat > /tmp/screen-exchange-eric
+        sq $1 pbpaste | ssh $1 cat > /tmp/tmux-exchange-eric
 }
 
 alias pprod='cd "/Users/eric/Sandbox/mmesa/puppet/branches/prod/${$(pwd)##/Users/eric/Sandbox/mmesa/puppet/branches/test/}"'
