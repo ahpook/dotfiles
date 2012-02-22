@@ -6,9 +6,9 @@ D="apple.com"
 if [[ $# -gt 0 ]] ; then
     TARGETS=($@)
 else
-    TARGETS=(launchpad001 launchpad002 qa1-launchpad02 qa2-launchpad02 int1-launchpad02 int2-launchpad02 qa3-launchpad02 is02 iswiki iswiki:/dmadmin/async/users/eric/dotfiles)
+    TARGETS=(launchpad001 launchpad002 iswiki iswiki:/dmadmin/async/users/dotmacadm/eric/dotfiles)
 #    TARGETS=(iswiki iswiki:/dmadmin/async/users/eric/dotfiles)
-	 
+ 
 fi
 
 echo -n "sync to localhost..."
@@ -25,7 +25,7 @@ for T in $TARGETS ; do
 	echo -n "sync to ${HOSTSPEC}:${PATHSPEC}"
         
 	if ssh -q -o"ConnectTimeout 5" $HOSTSPEC hostname > /dev/null 2>&1  ; then
-		rsync -rlp --stats --exclude=sync.zsh -e 'ssh -q' . ${HOSTSPEC}:${PATHSPEC}  && echo "OK"
+		rsync -rlp --stats --exclude=sync.zsh --exclude=.git/ -e 'ssh -q' . ${HOSTSPEC}:${PATHSPEC}  && echo "OK"
 	else
 		echo "Failed"
 	fi
