@@ -143,16 +143,22 @@ alias ipsort='sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
 function pmdiff () {
     (
         cd ~/Sandbox/mmesa/puppet/branches
-        diff -b -r -u --exclude=.svn prod/modules/$1 test/modules/$1
+        diff -b -r -u --exclude=.svn next/modules/$1 test/modules/$1
     )
 }
 
 function pmmerge () {
     (
-        cd ~/Sandbox/dotmac/puppet/branches/prod
+        cd ~/Sandbox/dotmac/puppet/branches/next
         svn merge -c $* https://is-svn.apple.com/svn/mmesa/puppet/branches/test
     )
 }
+
+# display cert info
+function certinfo () {
+    openssl x509 -in $1 -noout -text $*; 
+}
+
 
 # from RH /etc/profile
 function pathmunge () {
