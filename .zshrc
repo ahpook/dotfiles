@@ -136,8 +136,8 @@ function pbput () {
         sq $1 pbpaste | ssh $1 cat > /tmp/tmux-exchange-eric
 }
 
-alias pprod='cd "/Users/eric/Sandbox/mmesa/puppet/branches/prod/${$(pwd)##/Users/eric/Sandbox/mmesa/puppet/branches/test/}"'
-alias ptest='cd "/Users/eric/Sandbox/mmesa/puppet/branches/test/${$(pwd)##/Users/eric/Sandbox/mmesa/puppet/branches/prod/}"'
+alias pnext='cd "/Users/eric/Sandbox/mmesa/puppet/branches/next/${$(pwd)##/Users/eric/Sandbox/mmesa/puppet/branches/test/}"'
+alias ptest='cd "/Users/eric/Sandbox/mmesa/puppet/branches/test/${$(pwd)##/Users/eric/Sandbox/mmesa/puppet/branches/next/}"'
 alias ipsort='sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
 
 function pmdiff () {
@@ -149,8 +149,8 @@ function pmdiff () {
 
 function pmmerge () {
     (
-        cd ~/Sandbox/dotmac/puppet/branches/next
-        svn merge -c $* https://is-svn.apple.com/svn/mmesa/puppet/branches/test
+        cd ~/Sandbox/mmesa/puppet/branches/next
+        svn merge -c $* ../test
     )
 }
 

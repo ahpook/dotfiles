@@ -17,16 +17,7 @@ function hj() {
                     jot -w "${1}%03d" $(($3-$2+1)) $2 $3
 }
 
-
-function d() {
-    if [[ -z $1 ]] ; then s=main
-    else 
-        s=$1
-    fi
-    screen -d $s
-    screen -x $s
-}
-    
+   
 function fss() {
         [[ ! -z $SSH_AUTH_SOCK ]] && echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/ssh.sh || echo "No SSH_AUTH_SOCK variable here"
 }
