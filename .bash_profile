@@ -17,6 +17,10 @@ function hj() {
                     jot -w "${1}%03d" $(($3-$2+1)) $2 $3
 }
 
+# display cert info
+function certinfo () {
+    openssl x509 -in $1 -noout -text $*; 
+}
    
 function fss() {
         [[ ! -z $SSH_AUTH_SOCK ]] && echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/ssh.sh || echo "No SSH_AUTH_SOCK variable here"
