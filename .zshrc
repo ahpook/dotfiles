@@ -136,8 +136,8 @@ function pbput () {
         sq $1 pbpaste | ssh $1 cat > /tmp/tmux-exchange-eric
 }
 
-alias pnext='cd "/Users/eric/Sandbox/mmesa/puppet/branches/next/${$(pwd)##/Users/eric/Sandbox/mmesa/puppet/branches/test/}"'
-alias ptest='cd "/Users/eric/Sandbox/mmesa/puppet/branches/test/${$(pwd)##/Users/eric/Sandbox/mmesa/puppet/branches/next/}"'
+alias pnext='cd ${PWD/test/next/}'
+alias ptest='cd ${PWD/next/test/}'
 alias ipsort='sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
 
 function pmdiff () {
@@ -184,6 +184,7 @@ pathmunge /dmadmin/scripts
 pathmunge /root/tools/bin
 pathmunge /opt/local/bin
 pathmunge /opt/local/sbin
+pathmunge $HOME/.gem/ruby/1.8/bin
 
 unset pathmunge
 

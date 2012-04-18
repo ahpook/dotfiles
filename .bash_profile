@@ -54,7 +54,7 @@ pathmunge /opt/local/sbin
 pathmunge /usr/local/sbin after
 pathmunge /usr/local/bin after
 pathmunge /dmadmin/scripts
-pathmunge ~root/tools/bin
+pathmunge $HOME/.gem/ruby/1.8/bin
 
 alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <esorenson@apple.com> X\""
  
