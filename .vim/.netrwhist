@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/eric/Sandbox/puppet/lib/puppet/resource'
+let g:netrw_dirhist_2='/Users/eric/Sandbox/mmesa/puppet/branches/test/modules/mobileme/manifests/wd40carnival'
+let g:netrw_dirhist_3='/Users/eric/Sandbox/mmesa/puppet/branches/test/modules/os/manifests/oel'
+let g:netrw_dirhist_4='/Users/eric/Sandbox/mmesa/puppet/branches/test/modules/puppet/manifests/master'
+let g:netrw_dirhist_5='/Users/eric/Sandbox/vdks'
+let g:netrw_dirhist_6='/Users/eric/Sandbox/mmesa/isg/isg-puppet/trunk/modules/puppet/manifests/master'
