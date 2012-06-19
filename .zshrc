@@ -154,6 +154,18 @@ function pmmerge () {
     )
 }
 
+# pmerge core trunk stable rev
+function pmerge() {
+    (
+        [[ $# < 4 ]] && echo "usage: pmerge CODEBASE SOURCE-BRANCH DST-BRANCH REV [extra args..]" && return
+        tree=$1 ; shift
+        src=$1 ; shift
+        dst=$1 ; shift
+        cd ~/Sandbox/mmesa/isg/${tree}-puppet/branches/${dst}
+        svn merge -c $@ https://is-svn.apple.com/svn/mmesa/isg/${tree}-puppet/${src}
+    )
+}
+
 # display cert info
 function certinfo () {
     openssl x509 -in $1 -noout -text $*; 
