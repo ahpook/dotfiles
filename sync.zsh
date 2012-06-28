@@ -10,7 +10,7 @@ else
 fi
 
 echo -n "sync to localhost..."
-rsync -rlp --stats --exclude=sync.zsh . ~  && echo "OK"
+rsync -rlp --stats --exclude=sync.zsh --exclude=.git/ . ~  && echo "OK"
 
 for T in $TARGETS ; do
         if [[ -n $(echo $T | grep ":") ]] ; then
