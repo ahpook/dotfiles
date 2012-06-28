@@ -1,13 +1,11 @@
 #!/bin/zsh
 
-D="apple.com"
 # target hosts to receive the sync
 
 if [[ $# -gt 0 ]] ; then
     TARGETS=($@)
 else
-    TARGETS=(launchpad001 launchpad002 iswiki iswiki:/dmadmin/async/users/dotmacadm/eric/dotfiles)
-#    TARGETS=(iswiki iswiki:/dmadmin/async/users/eric/dotfiles)
+    TARGETS=(rdx.explosive.net shell.puppetlabs.com)
  
 fi
 

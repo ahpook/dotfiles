@@ -62,7 +62,7 @@ source $HOME/.zsh/windowtitle.zsh
 ## alias section
 alias d="screen -d main; screen -x main"
 alias jump='ssh -t launchpad002 ssh'
-alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <esorenson@apple.com> X\""
+alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <eric.sorenson@puppetlabs.com> X\""
 alias rsyncmp3="rsync -avW  -k --files-from=files.txt -e 'ssh -p 2222' sublimit.explosive.net:. ."
 
 ## function section, for things longer than aliases
@@ -97,20 +97,6 @@ function ss() {
     ssh-add -l
 }
 
-function ncdig () {
-    host=$1
-    ip=$(dig +short a ${host}.me.com @17.230.9.29)
-    [ -z "$ip" ] && echo "Unknown IP for [$host]" 1>&2 && return
-    echo $ip
-}
-
-function ncssh () {
-    host=$1
-    ip=$( ncdig $host )
-    [ ! -z "$ip" ] && ssh $ip
-}
-
-
 function sq()
 {
         ssh     -oLogLevel=ERROR \
@@ -136,35 +122,7 @@ function pbput () {
         sq $1 pbpaste | ssh $1 cat > /tmp/tmux-exchange-eric
 }
 
-alias pnext='cd ${PWD/test/next/}'
-alias ptest='cd ${PWD/next/test/}'
 alias ipsort='sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
-
-function pmdiff () {
-    (
-        cd ~/Sandbox/mmesa/puppet/branches
-        diff -b -r -u --exclude=.svn next/modules/$1 test/modules/$1
-    )
-}
-
-function pmmerge () {
-    (
-        cd ~/Sandbox/mmesa/puppet/branches/next
-        svn merge -c $* ../test
-    )
-}
-
-# pmerge core trunk stable rev
-function pmerge() {
-    (
-        [[ $# < 4 ]] && echo "usage: pmerge CODEBASE SOURCE-BRANCH DST-BRANCH REV [extra args..]" && return
-        tree=$1 ; shift
-        src=$1 ; shift
-        dst=$1 ; shift
-        cd ~/Sandbox/mmesa/isg/${tree}-puppet/branches/${dst}
-        svn merge -c $@ https://is-svn.apple.com/svn/mmesa/isg/${tree}-puppet/${src}
-    )
-}
 
 # display cert info
 function certinfo () {
@@ -192,8 +150,6 @@ pathmunge /sbin
 pathmunge /usr/sbin
 pathmunge /usr/local/sbin after
 pathmunge /usr/local/bin after
-pathmunge /dmadmin/scripts
-pathmunge /root/tools/bin
 pathmunge /opt/local/bin
 pathmunge /opt/local/sbin
 pathmunge $HOME/.gem/ruby/1.8/bin
