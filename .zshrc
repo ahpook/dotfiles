@@ -160,8 +160,8 @@ unset pathmunge
 TZ="America/Los_Angeles"
 PS1="[%n@%3m %40<...<%~]%# " 
 
-# This loads RVM into a shell session if it's available
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+# no mo' rvm, use rbenv instead.
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 if [[ `uname` == "Darwin" ]]; then
 	# for osx desktops only
