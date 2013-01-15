@@ -55,6 +55,8 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 # location of history
 export HISTFILE=$HOME/.zhistory
+# for envpuppet
+export ENVPUPPET_BASEDIR=/Users/eric/Sandbox
 
 # crazy scripts to source
 source $HOME/.zsh/windowtitle.zsh
@@ -66,6 +68,10 @@ alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <eric.sorenson@pup
 alias rsyncmp3="rsync -avW  -k --files-from=files.txt -e 'ssh -p 2222' sublimit.explosive.net:. ."
 
 ## function section, for things longer than aliases
+function btmm () {
+     scutil --dns | grep members | awk '{print $3}'
+}
+
 function rmssh () {
     sed -ie "$1d" ~/.ssh/known_hosts
 }
@@ -78,16 +84,7 @@ function hj() {
     [[ $# -lt 3 ]] && return -1
     jot -w "${1}%03d" $(($3-$2+1)) $2 $3
 }
-
-function d() {
-    if [[ -z $1 ]] ; then s=main
-    else 
-        s=$1
-    fi
-    screen -d $s
-    screen -x $s
-}
-    
+   
 function fss() {
     [[ ! -z $SSH_AUTH_SOCK ]] && echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/ssh.sh || echo "No SSH_AUTH_SOCK variable here"
 }
@@ -161,7 +158,7 @@ TZ="America/Los_Angeles"
 PS1="[%n@%3m %40<...<%~]%# " 
 
 # no mo' rvm, use rbenv instead.
-if which rbenv > /dev/null 2>&1; then eval "$(rbenv init -)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 if [[ `uname` == "Darwin" ]]; then
 	# for osx desktops only

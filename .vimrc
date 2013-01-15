@@ -15,10 +15,10 @@ set smartindent
 inoremap # X#
 set expandtab
 set smarttab
-set softtabstop=4
+set softtabstop=2
 set splitbelow
 set nostartofline
-set shiftwidth=4
+set shiftwidth=2
 set history=50
 set scrolloff=5
 " filetype off
@@ -43,5 +43,5 @@ if exists(":Tabularize")
     vmap <Leader>p= :Tabularize /=<CR>
 endif
 
-autocmd BufNewFile,BufRead *.rb set fo+=a smartindent autoindent
+autocmd BufNewFile,BufRead *.rb set fo+=a smartindent autoindent ts=2 sw=2
 
