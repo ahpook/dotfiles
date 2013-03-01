@@ -1,7 +1,7 @@
 version 4.0
 set nocompatible
-set textwidth=120
-set formatoptions=tqcwn
+set textwidth=0
+set formatoptions=tqcwna
 set magic
 set ignorecase
 set autowrite
@@ -21,6 +21,7 @@ set nostartofline
 set shiftwidth=2
 set history=50
 set scrolloff=5
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " filetype off
 
 " conditionally load up the fancy pathogen-managed stuff if it exists
@@ -28,7 +29,7 @@ set scrolloff=5
 if filereadable("/Users/eric/.vim/autoload/pathogen.vim")
     call pathogen#helptags()
     call pathogen#runtime_append_all_bundles()
-    set background=light
+    set background=dark
     let g:solarized_termtrans=1
     let g:solarized_contrast="normal"
     colorscheme solarized
