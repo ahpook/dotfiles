@@ -22,6 +22,7 @@ set shiftwidth=2
 set history=50
 set scrolloff=5
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set laststatus=2
 " filetype off
 
 " conditionally load up the fancy pathogen-managed stuff if it exists
