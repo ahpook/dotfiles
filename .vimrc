@@ -4,9 +4,11 @@ set textwidth=0
 set formatoptions=tqcwna
 set magic
 set ignorecase
+set smartcase
 set autowrite
 set joinspaces
 set ruler
+set relativenumber
 set showmode
 set ww=b,s,[,],<,>
 set bs=2

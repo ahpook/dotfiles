@@ -22,7 +22,8 @@ for T in $TARGETS ; do
         fi
 	echo -n "sync to ${HOSTSPEC}:${PATHSPEC}"
         
-	if ssh -q -o"ConnectTimeout 5" $HOSTSPEC hostname > /dev/null 2>&1  ; then
+        if ssh -6 -q -o"ConnectTimeout 5" $HOSTSPEC hostname > /dev/null 2>&1  
+          ; then
 		rsync -rlp --stats --exclude=sync.zsh --exclude=.git/ -e 'ssh -q' . ${HOSTSPEC}:${PATHSPEC}  && echo "OK"
 	else
 		echo "Failed"
