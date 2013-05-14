@@ -1,7 +1,7 @@
 version 4.0
 set nocompatible
 set textwidth=0
-set formatoptions=tqcwna
+set formatoptions=tqcwn
 set magic
 set ignorecase
 set smartcase
@@ -48,4 +48,5 @@ if exists(":Tabularize")
 endif
 
 autocmd BufNewFile,BufRead *.rb set fo+=a smartindent autoindent ts=2 sw=2
+autocmd BufNewFile,BufRead *.md set fo+=a smartindent autoindent ts=2 sw=2
 
