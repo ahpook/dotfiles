@@ -8,7 +8,7 @@ set smartcase
 set autowrite
 set joinspaces
 set ruler
-set relativenumber
+set number
 set showmode
 set ww=b,s,[,],<,>
 set bs=2
@@ -46,6 +46,16 @@ if exists(":Tabularize")
     nmap <Leader>p= :Tabularize /=<CR>
     vmap <Leader>p= :Tabularize /=<CR>
 endif
+
+function! ToggleNumber()
+  if (&number)
+    set relativenumber
+  else
+    set number
+  endif
+endfunction
+
+nmap <Leader>n :call ToggleNumber()<CR>
 
 autocmd BufNewFile,BufRead *.rb set fo+=a smartindent autoindent ts=2 sw=2
 autocmd BufNewFile,BufRead *.md set fo+=a smartindent autoindent ts=2 sw=2
