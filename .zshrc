@@ -62,10 +62,9 @@ export ENVPUPPET_BASEDIR=/Users/eric/Sandbox
 source $HOME/.zsh/windowtitle.zsh
 
 ## alias section
-alias d="screen -d main; screen -x main"
 alias jump='ssh -t launchpad002 ssh'
 alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <eric.sorenson@puppetlabs.com> X\""
-alias rsyncmp3="rsync -avW  -k --files-from=files.txt -e 'ssh -p 2222' sublimit.explosive.net:. ."
+alias gwping="ping -q -c 10 $(netstat -rn | grep '^default.*UG' | awk '{print $2}')"
 
 ## function section, for things longer than aliases
 function btmm () {

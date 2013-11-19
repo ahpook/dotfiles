@@ -50,7 +50,9 @@ endif
 function! ToggleNumber()
   if (&number)
     set relativenumber
+    set nonumber
   else
+    set norelativenumber
     set number
   endif
 endfunction
