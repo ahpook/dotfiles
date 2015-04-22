@@ -48,6 +48,8 @@ bindkey "" history-incremental-search-backward
 bindkey "_" insert-last-word
 bindkey "" end-of-line
 bindkey "" beginning-of-line
+bindkey "" vi-backward-blank-word
+bindkey "" vi-forward-blank-word
 
 # number of lines kept in history
 export HISTSIZE=1000
@@ -144,11 +146,10 @@ function pathmunge () {
 
 pathmunge /sbin
 pathmunge /usr/sbin
-pathmunge /usr/local/sbin after
-pathmunge /usr/local/bin after
+pathmunge /usr/local/sbin
+pathmunge /usr/local/bin
 pathmunge /opt/local/bin
 pathmunge /opt/local/sbin
-pathmunge $HOME/.gem/ruby/1.8/bin
 
 unset pathmunge
 
@@ -157,6 +158,7 @@ TZ="America/Los_Angeles"
 PS1="[%n@%3m %40<...<%~]%# " 
 
 # no mo' rvm, use rbenv instead.
+export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 if [[ `uname` == "Darwin" ]]; then
