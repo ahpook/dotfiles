@@ -31,8 +31,8 @@ set laststatus=2
 " this can't use the exists() function 
 if filereadable("/Users/eric/.vim/autoload/pathogen.vim")
     call pathogen#helptags()
-    call pathogen#runtime_append_all_bundles()
-    set background=dark
+    call pathogen#infect()
+    set background=light
     let g:solarized_termtrans=1
     let g:solarized_contrast="normal"
     colorscheme solarized
@@ -60,5 +60,5 @@ endfunction
 nmap <Leader>n :call ToggleNumber()<CR>
 
 autocmd BufNewFile,BufRead *.rb set fo+=a smartindent autoindent ts=2 sw=2
-autocmd BufNewFile,BufRead *.md set fo+=a smartindent autoindent ts=2 sw=2
-
+autocmd BufNewFile,BufRead *.md set fo+=a smartindent autoindent ts=2 sw=2 tw=120
+autocmd BufNewFile,BufRead pico.* set fo+=a tw=78
