@@ -19,7 +19,7 @@ personal-name=
 user-domain=puppetlabs.com
 
 # List of SMTP servers for sending mail. If blank: Unix Alpine uses sendmail.
-smtp-server=smtp.gmail.com/ssl/novalidate-cert/user=eric.sorenson@puppetlabs.com
+smtp-server=smtp.gmail.com/ssl/user=eric.sorenson@puppetlabs.com
 
 # NNTP server for posting news. Also sets news-collections for news reading.
 nntp-server=
@@ -45,7 +45,7 @@ default-fcc={imap.gmail.com/ssl/user=eric.sorenson@puppetlabs.com}[Gmail]/Sent M
 # Over-rides default path for saved-msg folder, e.g. =saved-messages (using 1st
 # folder collection dir) or ={host2}saved-mail or ="" (to suppress saving).
 # Default: saved-messages (Unix) or SAVEMAIL.MTX (PC) in default collection.
-default-saved-msg-folder=
+default-saved-msg-folder={imap.gmail.com/ssl/user=eric.sorenson@puppetlabs.com}[Gmail]/Vault
 
 # Over-rides default path for postponed messages folder, e.g. =pm (which uses
 # first folder collection dir) or ={host4}pm (using home dir on host4).
@@ -365,7 +365,7 @@ incoming-folders=
 # the default for Saves. Example: Main {host1}mail/[], Desktop mail\[]
 # Syntax: optnl-label {optnl-imap-hostname}optnl-directory-path[]
 folder-collections=mail/[],
-	"Puppet Gmail" {imap.gmail.com/ssl/novalidate-cert/user=eric.sorenson@puppetlabs.com}[]
+	"Puppet Gmail" {imap.gmail.com/ssl/user=eric.sorenson@puppetlabs.com}[]
 
 # List, only needed if nntp-server not set, or news is on a different host
 # than used for NNTP posting. Examples: News *[] or News *{host3/nntp}[]
@@ -535,21 +535,21 @@ directory-foreground-color=
 directory-background-color=
 folder-list-text-foreground-color=
 folder-list-text-background-color=
-status-foreground-color=
-status-background-color=
+status-foreground-color=000,174,174
+status-background-color=255,255,255
 keylabel-foreground-color=
 keylabel-background-color=
 keyname-foreground-color=
 keyname-background-color=
-selectable-item-foreground-color=
-selectable-item-background-color=
+selectable-item-foreground-color=048,1522998
+selectable-item-background-color=255,255,255
 meta-message-foreground-color=
 meta-message-background-color=
-quote1-foreground-color=000,2561267
+quote1-foreground-color=32767,-1961
 quote1-background-color=transparent
-quote2-foreground-color=32709,000,0
+quote2-foreground-color=000,000,174
 quote2-background-color=transparent
-quote3-foreground-color=000,001,000
+quote3-foreground-color=000,1369004
 quote3-background-color=transparent
 incoming-unseen-foreground-color=
 incoming-unseen-background-color=
