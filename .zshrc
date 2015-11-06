@@ -63,6 +63,9 @@ export ENVPUPPET_BASEDIR=/Users/eric/Sandbox
 # crazy scripts to source
 source $HOME/.zsh/windowtitle.zsh
 
+# source credentials into environment, not tracked in git
+source $HOME/.zsh/local_creds.zsh
+
 ## alias section
 alias jump='ssh -t launchpad002 ssh'
 alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <eric.sorenson@puppetlabs.com> X\""
@@ -70,7 +73,7 @@ alias gwping="ping -q -c 10 $(netstat -rn | grep '^default.*UG' | awk '{print $2
 
 ## function section, for things longer than aliases
 function btmm () {
-     scutil --dns | grep members | awk '{print $3}'
+     echo -n "128266953.members.btmm.icloud.com"
 }
 
 function rmssh () {

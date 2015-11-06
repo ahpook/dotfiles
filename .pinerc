@@ -323,7 +323,7 @@ mailcap-search-path=
 mimetype-search-path=
 
 # List of programs to open Internet URLs (e.g. http or ftp references).
-url-viewers=
+url-viewers=/usr/bin/open
 
 # The maximum number of non-stayopen remote connections that Alpine will use
 max-remote-connections=
@@ -383,10 +383,10 @@ address-book=
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=115.6
+last-time-prune-questioned=115.11
 
 # Set by Alpine; controls display of "new version" message.
-last-version-used=6.11
+last-version-used=6.20
 
 # This names the path to an alternative program, and any necessary arguments,
 # to be used in posting mail messages.  Example:
@@ -521,8 +521,8 @@ current-indexline-style=flip-colors
 titlebar-color-style=
 
 # Choose: black, blue, green, cyan, red, magenta, yellow, or white.
-normal-foreground-color=transparent
-normal-background-color=255,255,255
+normal-foreground-color=
+normal-background-color=
 reverse-foreground-color=
 reverse-background-color=
 title-foreground-color=
@@ -545,20 +545,20 @@ selectable-item-foreground-color=048,1522998
 selectable-item-background-color=255,255,255
 meta-message-foreground-color=
 meta-message-background-color=
-quote1-foreground-color=32767,-1961
+quote1-foreground-color=32767,-1740
 quote1-background-color=transparent
 quote2-foreground-color=000,000,174
 quote2-background-color=transparent
-quote3-foreground-color=000,1369004
+quote3-foreground-color=32767,-2001
 quote3-background-color=transparent
-incoming-unseen-foreground-color=
-incoming-unseen-background-color=
+incoming-unseen-foreground-color=672858178,6
+incoming-unseen-background-color=255,255,255
 signature-foreground-color=
 signature-background-color=
-prompt-foreground-color=
-prompt-background-color=
-header-general-foreground-color=
-header-general-background-color=
+prompt-foreground-color=1528496193,
+prompt-background-color=000,255,000
+header-general-foreground-color=255,255,000
+header-general-background-color=255,255,255
 index-to-me-foreground-color=174,174,000
 index-to-me-background-color=transparent
 index-important-foreground-color=
@@ -656,3 +656,8 @@ wp-state=
 
 # Web Alpine preferred width for message display in characters
 wp-columns=
+
+# UNIX ONLY (except MAC OSX): When an attachment is opened, this variable controls the number
+#of seconds to wait between checks if the user has ended viewing the attachment.
+#minimun value: 60 seconds, maximum value: 600 seconds (10 minutes). Default: 60 seconds
+mailcap-check-interval=
