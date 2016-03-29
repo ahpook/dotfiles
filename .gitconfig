@@ -1,3 +1,5 @@
 [user]
 	email = eric.sorenson@puppetlabs.com
 	name = Eric Sorenson
+[push]
+	default = matching
