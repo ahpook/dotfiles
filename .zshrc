@@ -2,6 +2,7 @@
 # prezto startup first
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 ## Bindkey section
 # emacs-esque things i'm used to
@@ -71,6 +72,7 @@ function pathmunge () {
 	   fi
 	fi
 }
+
 pathmunge /sbin
 pathmunge /usr/sbin
 pathmunge /usr/local/sbin
@@ -79,6 +81,9 @@ pathmunge /opt/local/bin
 pathmunge /opt/local/sbin
 unset pathmunge
 
+# no mo' rvm, use rbenv instead.
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # number of lines kept in history
 export HISTSIZE=1000
@@ -91,11 +96,8 @@ source $HOME/.zsh/local_creds.zsh
 # variables to set
 TZ="America/Los_Angeles"
 
-# no mo' rvm, use rbenv instead.
-export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 hasvim=`which vim 2>/dev/null`
+
 if [[ $? == 0 ]]; then
         VISUAL=$hasvim
         SVN_EDITOR=$hasvim
@@ -105,3 +107,4 @@ else
 fi
 
 export TZ PATH VISUAL SVN_EDITOR
+
