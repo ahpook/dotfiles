@@ -34,7 +34,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'prompt' \
   'history-substring-search' \
-  'autosuggestions' \
   'git' \
 
 #
@@ -42,7 +41,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the query found color.
-zstyle ':prezto:module:autosuggestions:color' found ''
+# zstyle ':prezto:module:autosuggestions:color' found ''
 
 #
 # Editor
@@ -71,6 +70,7 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 #
 # History Substring Search
 #
+zstyle ':prezto:module:history-substring-search' color 'yes'
 
 # Set the query found color.
 # zstyle ':prezto:module:history-substring-search:color' found ''
