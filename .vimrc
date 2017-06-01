@@ -23,13 +23,13 @@ set nostartofline
 set shiftwidth=2
 set history=50
 set scrolloff=5
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " filetype off
 
 " conditionally load up the fancy pathogen-managed stuff if it exists
 " this can't use the exists() function 
-if filereadable("/Users/eric/.vim/autoload/pathogen.vim")
+if filereadable("/home/eric/.vim/autoload/pathogen.vim")
     call pathogen#helptags()
     call pathogen#infect()
     set background=light
@@ -38,6 +38,7 @@ if filereadable("/Users/eric/.vim/autoload/pathogen.vim")
     colorscheme solarized
     syntax on
 endif
+
 
 let mapleader=','
 if exists(":Tabularize")

@@ -1,23 +1,15 @@
 #!/usr/bin/env ruby
 
 git_bundles = [ 
-  "git://github.com/astashov/vim-ruby-debugger.git",
-  "git://github.com/msanders/snipmate.vim.git",
-  "git://github.com/scrooloose/nerdtree.git",
-  "git://github.com/timcharper/textile.vim.git",
-  "git://github.com/tpope/vim-git.git",
-  "git://github.com/tpope/vim-haml.git",
+  "git://github.com/tpope/vim-fugitive.git",
   "git://github.com/tpope/vim-markdown.git",
   "git://github.com/tpope/vim-repeat.git",
   "git://github.com/tpope/vim-surround.git",
   "git://github.com/tsaleh/vim-align.git",
-  "git://github.com/vim-ruby/vim-ruby.git",
-  "git://github.com/goldfeld/criticmarkup-vim.git"
+  "git@github.com:altercation/vim-colors-solarized.git",
 ]
 
 vim_org_scripts = [
-  ["IndexedSearch", "7062",  "plugin"],
-  ["gist",          "12732", "plugin"],
   ["railscasts",    "2175",  "colors"],
 ]
 
