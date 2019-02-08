@@ -58,6 +58,9 @@ function certinfo () {
 
 ## shell vars section
 
+# i guess we're doing golang now
+GOPATH=$HOME/Sandbox/go
+
 # repetition-avoiding PATH manipulation from RH /etc/profile
 function pathmunge () {
 	if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
@@ -77,8 +80,7 @@ pathmunge /sbin
 pathmunge /usr/sbin
 pathmunge /usr/local/sbin
 pathmunge /usr/local/bin
-pathmunge /opt/local/bin
-pathmunge /opt/local/sbin
+pathmunge $GOPATH/bin
 unset pathmunge
 
 # no mo' rvm, use rbenv instead.
