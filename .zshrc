@@ -19,11 +19,6 @@ alias gwping="ping -q -c 10 $(netstat -rn | grep '^default.*UG' | awk '{print $2
 # sort a list of IPs numerically
 alias ipsort='sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
 
-## function section, for things longer than aliases
-function btmm () {
-     echo -n "128266953.members.btmm.icloud.com"
-}
-
 function sq()
 {
         ssh     -oLogLevel=ERROR \
@@ -60,6 +55,8 @@ function certinfo () {
 
 # i guess we're doing golang now
 GOPATH=$HOME/Sandbox/go
+LYRAPATH=$GOPATH/src/github.com/lyraproj/lyra
+export GOPATH LYRAPATH
 
 # repetition-avoiding PATH manipulation from RH /etc/profile
 function pathmunge () {
@@ -81,7 +78,17 @@ pathmunge /usr/sbin
 pathmunge /usr/local/sbin
 pathmunge /usr/local/bin
 pathmunge $GOPATH/bin
+pathmunge $HOME/.cargo/bin
 unset pathmunge
+
+# if rust stuff is found, use it
+RBIN=$HOME/.cargo/bin
+if [[ -d $RBIN ]]; then
+  [[ -f $RBIN/bat ]] && alias less=bat
+  [[ -f $RBIN/dua ]] && alias du=dua
+  [[ -f $RBIN/rg  ]] && alias grep=rg
+  [[ -f $RBIN/exa ]] && alias ls=exa
+fi
 
 # no mo' rvm, use rbenv instead.
 export RBENV_ROOT=/usr/local/var/rbenv
@@ -110,3 +117,5 @@ fi
 
 export TZ PATH VISUAL SVN_EDITOR
 
+# shared history is from Satan, and not in a good way
+unsetopt share_history
