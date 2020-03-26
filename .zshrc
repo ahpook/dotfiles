@@ -84,10 +84,11 @@ unset pathmunge
 # if rust stuff is found, use it
 RBIN=$HOME/.cargo/bin
 if [[ -d $RBIN ]]; then
-  [[ -f $RBIN/bat ]] && alias less=bat
+  [[ -f $RBIN/bat ]] && for f in less more cat ; do alias $f=bad ; done
   [[ -f $RBIN/dua ]] && alias du=dua
   [[ -f $RBIN/rg  ]] && alias grep=rg
   [[ -f $RBIN/exa ]] && alias ls=exa
+  [[ -f $RBIN/fd ]] && alias fd=find
 fi
 
 # no mo' rvm, use rbenv instead.
