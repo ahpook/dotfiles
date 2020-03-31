@@ -84,7 +84,7 @@ unset pathmunge
 # if rust stuff is found, use it
 RBIN=$HOME/.cargo/bin
 if [[ -d $RBIN ]]; then
-  [[ -f $RBIN/bat ]] && for f in less more cat ; do alias $f=bad ; done
+  [[ -f $RBIN/bat ]] && for f in less more cat ; do alias $f=bat ; done
   [[ -f $RBIN/dua ]] && alias du=dua
   [[ -f $RBIN/rg  ]] && alias grep=rg
   [[ -f $RBIN/exa ]] && alias ls=exa
