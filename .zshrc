@@ -90,7 +90,7 @@ if [[ -d $RBIN ]]; then
   [[ -f $RBIN/dua ]] && alias du=dua
   [[ -f $RBIN/rg  ]] && alias grep=rg
   [[ -f $RBIN/exa ]] && alias ls=exa
-  [[ -f $RBIN/fd  ]] && alias fd=find
+  [[ -f $RBIN/fd  ]] && alias find=fd
 fi
 
 # no mo' rvm, use rbenv instead.
