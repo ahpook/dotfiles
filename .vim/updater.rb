@@ -9,10 +9,6 @@ git_bundles = [
   "git@github.com:altercation/vim-colors-solarized.git",
 ]
 
-vim_org_scripts = [
-  ["railscasts",    "2175",  "colors"],
-]
-
 require 'fileutils'
 require 'open-uri'
 
@@ -30,11 +26,3 @@ git_bundles.each do |url|
   FileUtils.rm_rf(File.join(dir, ".git"))
 end
 
-vim_org_scripts.each do |name, script_id, script_type|
-  puts "  Downloading #{name}"
-  local_file = File.join(name, script_type, "#{name}.vim")
-  FileUtils.mkdir_p(File.dirname(local_file))
-  File.open(local_file, "w") do |file|
-    file << open("http://www.vim.org/scripts/download_script.php?src_id=#{script_id}").read
-  end
-end
