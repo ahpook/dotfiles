@@ -21,7 +21,7 @@ bindkey "" vi-backward-blank-word
 bindkey "" vi-forward-blank-word
 
 ## alias section
-alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <eric.sorenson@puppetlabs.com> X\""
+alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <eric.sorenson@me.com> X\""
 alias gwping="ping -q -c 10 $(netstat -rn | grep '^default.*UG' | awk '{print $2}')"
 # sort a list of IPs numerically
 alias ipsort='sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
@@ -41,7 +41,7 @@ function sq()
                 -oStrictHostKeyChecking=no \
                 "$@"
 }
-    
+
 
 # these two let you exchange contents from tmux's copy-paste buffer into
 # the mac os paste buffer - relies on the 'load-buffer' and 'save-buffer'
@@ -62,8 +62,7 @@ function certinfo () {
 
 # i guess we're doing golang now
 GOPATH=$HOME/Sandbox/go
-LYRAPATH=$GOPATH/src/github.com/lyraproj/lyra
-export GOPATH LYRAPATH
+export GOPATH
 
 # repetition-avoiding PATH manipulation from RH /etc/profile
 function pathmunge () {
@@ -80,6 +79,7 @@ function pathmunge () {
 	fi
 }
 
+pathmunge /opt/homebrew/bin
 pathmunge /sbin
 pathmunge /usr/sbin
 pathmunge /usr/local/sbin
@@ -108,10 +108,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export HISTSIZE=1000
 # number of lines saved in the history after logout
 export SAVEHIST=1000
-# location of history
-export HISTFILE=$HOME/.zhistory
 # source credentials into environment, not tracked in git
-source $HOME/.zsh/local_creds.zsh
+[[ -f $HOME/.zsh/local_creds.szh ]] && source $HOME/.zsh/local_creds.zsh
 # variables to set
 TZ="America/Los_Angeles"
 
