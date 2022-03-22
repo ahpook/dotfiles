@@ -17,13 +17,13 @@ I've done this enough lately that it seemed worthwhile to write down all the ste
 * Install FiraCode and Hack fonts
 * Install [brew](https://brew.sh) ; this will prompt for xcode tools
 * brew install tmux zsh rust
-* cargo install dua rg exa fd-find
+* cargo install dua rg exa fd-find bat
 -> new macOS requires adjusting path because /usr/local/ isn't writeable anymore
 -> fixed in .zshrc
 * add /opt/homebrew/bin/zsh to /etc/shells
 * chsh to /opt/homebrew/bin/zsh
 * Install zprezto. Start new shell and make sure it's all good.
-
+  
 
 # Audio stuff
 
