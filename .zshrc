@@ -25,7 +25,7 @@ alias changelog="echo \"* `date '+%a %b %d %Y'` Eric Sorenson <eric.sorenson@me.
 alias gwping="ping -q -c 10 $(netstat -rn | grep '^default.*UG' | awk '{print $2}')"
 # sort a list of IPs numerically
 alias ipsort='sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
-alias oktapw="security find-generic-password -l device_trust '-w'"
+alias oktapw="security find-generic-password -l device_trust '-w' | pbcopy"
 
 function sq()
 {
