@@ -113,18 +113,10 @@ export SAVEHIST=1000
 [[ -f $HOME/.zsh/local_creds.szh ]] && source $HOME/.zsh/local_creds.zsh
 # variables to set
 TZ="America/Los_Angeles"
+# for 1password touchid
+OP_BIOMETRIC_UNLOCK_ENABLED=true
 
-hasvim=`which vim 2>/dev/null`
-
-if [[ $? == 0 ]]; then
-        VISUAL=$hasvim
-        SVN_EDITOR=$hasvim
-else
-        VISUAL=`which vi`
-        SVN_EDITOR=$VISUAL
-fi
-
-export TZ PATH VISUAL SVN_EDITOR
+export TZ PATH VISUAL OP_BIOMETRIC_UNLOCK_ENABLED
 
 # shared history is from Satan, and not in a good way
 unsetopt share_history
