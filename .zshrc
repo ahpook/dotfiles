@@ -110,7 +110,7 @@ export HISTSIZE=1000
 # number of lines saved in the history after logout
 export SAVEHIST=1000
 # source credentials into environment, not tracked in git
-[[ -f $HOME/.zsh/local_creds.szh ]] && source $HOME/.zsh/local_creds.zsh
+[[ -f $HOME/.zsh/local_creds.zsh ]] && source $HOME/.zsh/local_creds.zsh
 # variables to set
 TZ="America/Los_Angeles"
 # for 1password touchid
